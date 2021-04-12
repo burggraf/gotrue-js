@@ -317,13 +317,10 @@ export default class GoTrueClient {
     this._notifyAllSubscribers('SIGNED_OUT')
     if (accessToken) {
       const { error } = await this.api.signOut(accessToken)
-      if (error) {
-        return { error }
-      } else {
-        return { error: null }
-      }
+      
+      if (error) return { error }
     }
-    return { error: null };
+    return { error: null }
   }
 
   /**
